@@ -7,14 +7,21 @@ docker build -t komsonn7/k-postgresql .
 docker push komsonn7/k-postgresql
 ```
 
-### Docker Run
-
-```
-docker run -d -t -i -e HOST=<host> -e PORT=5432 -e USER=postgres -e PASSWORD=<password> -e DATABASE=postgres --name mypostgresql k-postgresql
-```
-
 ### Kubernetes Run
 
 ```
 kubectl apply -f pod.yml
+kubectl exec -it myapp -- python /app/create.py
+kubectl exec -it myapp -- python /app/select.py
+
+```
+
+### Docker Run
+
+```
+docker pull komsonn7/k-postgresql:latest
+docker run -dit -e HOST=<host> -e PORT=5432 -e USER=postgres -e PASSWORD=<password> -e DATABASE=postgres --name mypostgresql komsonn7/k-postgresql:latest
+docker exec -it mypostgresql python /app/create.py
+docker exec -it mypostgresql python /app/select.py
+
 ```
