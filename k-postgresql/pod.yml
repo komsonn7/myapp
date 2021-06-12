@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: myapp
+    image: komsonn7/k-postgresql:latest
+    env:
+    - name: HOST
+      value: "aqi-postgresql.postgresql"
+    - name: PASSWORD
+      value: $POSTGRES_PASSWORD
