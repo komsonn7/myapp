@@ -10,7 +10,7 @@ docker push komsonn7/k-postgresql
 ### Docker Run
 
 ```
-docker run -d -t -i -e HOST=<host> -e PORT=31054 -e USER=postgres -e PASSWORD=<password> -e DATABASE=postgres --name mypostgresql k-postgresql
+docker run -d -t -i -e HOST=<host> -e PORT=5432 -e USER=postgres -e PASSWORD=<password> -e DATABASE=postgres --name mypostgresql k-postgresql
 ```
 
 ### Kubernetes Run
